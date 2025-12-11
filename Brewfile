@@ -1,1 +1,2 @@
 brew "starship"
+brew "aerospace"
