@@ -1,0 +1,142 @@
+# Git Configuration - Shared aliases and settings
+# Include this in your ~/.gitconfig with:
+# [include]
+#     path = ~/projects/dotfiles/.gitconfig
+
+[alias]
+    # Add changes
+    plus = add .
+
+	# Status and log shortcuts
+	s = status
+	co = checkout
+	br = branch
+	cm = commit -m
+	unstage = reset HEAD --
+	last = log -1 HEAD
+	visual = !gitk
+	lg = log --color --graph --pretty=format:'%C(yellow)%h%Creset -%C(red)%d%Creset %s %C(green)(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+	lga = log --color --graph --pretty=format:'%C(yellow)%h%Creset -%C(red)%d%Creset %s %C(green)(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --all
+	
+	# Useful shortcuts
+	amend = commit --amend
+	undo = reset --soft HEAD^
+	discard = checkout --
+	uncommit = reset --soft HEAD~1
+	unstage = restore --staged
+	
+	# Branch management
+	cleanup = "!git branch --merged | grep -v '\\*\\|main\\|master\\|develop' | xargs -n 1 git branch -d"
+	
+	# Diff shortcuts
+	diffc = diff --cached
+	diffw = diff --word-diff
+	
+	# Stash shortcuts
+	spop = stash pop
+	slist = stash list
+	sdrop = stash drop
+	
+	# Remote shortcuts
+	remotes = remote -v
+	fetchall = fetch --all --prune
+	
+	# Push/pull shortcuts
+	up = !git pull --rebase --prune $@ && git submodule update --init --recursive
+	publish = !git push -u origin $(git branch-name)
+	
+	# Branch name helper
+	branch-name = !git rev-parse --abbrev-ref HEAD
+	
+	# Show current branch
+	current = rev-parse --abbrev-ref HEAD
+	
+	# Quick commit
+	save = !git add -A && git commit -m
+	
+	# See what changed in a file
+	changes = diff HEAD
+	
+	# Show files changed in last commit
+	lastfiles = diff-tree --no-commit-id --name-only -r HEAD
+	
+	# Show commit stats
+	stats = !git log --stat --pretty="%C(yellow)%h%Creset %s %C(red)(%an, %ar)%Creset"
+	
+	# Find commits by message
+	find = !git log --all --grep
+	
+	# Show commit log with file changes
+	filelog = log --follow
+	
+	# Show who last modified each line
+	blame = blame -w -M
+	
+	# Clean up merged branches
+	prune-branches = !git remote prune origin && git branch -vv | grep ': gone]' | awk '{print $1}' | xargs git branch -d
+	
+	# Show what's changed since a branch
+	diff-branch = !git diff $(git merge-base HEAD $1)..HEAD
+	
+	# Show commits in current branch not in main/master
+	unpushed = log origin/main..HEAD
+	unpulled = log HEAD..origin/main
+	
+	# Create and switch to new branch
+	new = checkout -b
+	
+	# Delete merged branches
+	merged = branch --merged
+	unmerged = branch --no-merged
+	
+	# Show file history
+	history = log --follow -p
+	
+	# Quick add and commit
+	ac = !git add -A && git commit
+	
+	# Show diff with word-level changes
+	word-diff = diff --word-diff=color
+	
+	# Show only file names that changed
+	changed = diff --name-only
+	
+	# Show commit graph
+	graph = log --graph --oneline --all --decorate
+	
+	# Show recent commits with stats
+	recent = log --since="1 week ago" --stat
+	
+	# Show commits by author
+	by-author = !git log --author="$1" --pretty=format:"%h - %an, %ar : %s"
+	
+	# Show what changed in last N commits
+	whatchanged = log -p
+	
+	# Quick fixup commit
+	fixup = !git commit --fixup
+	
+	# Interactive rebase
+	rebase-i = rebase -i
+	
+	# Show commit summary
+	summary = log --oneline --graph --decorate --all
+
+[color]
+	ui = auto
+
+[color "branch"]
+	current = yellow reverse
+	local = yellow
+	remote = green
+
+[color "status"]
+	added = yellow
+	changed = green
+	untracked = cyan
+
+[init]
+	defaultBranch = main
+
+[pull]
+	rebase = false
