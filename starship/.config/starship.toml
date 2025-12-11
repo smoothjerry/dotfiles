@@ -1,0 +1,17 @@
+# Get editor completions based on the config schema
+"$schema" = 'https://starship.rs/config-schema.json'
+
+add_newline = true
+
+# Lets see what profile we are logged into, and our session time remaining.
+[aws]
+disabled = false
+
+# Knowing what Kubernetes Context and Namespace you are working in.
+[kubernetes]
+disabled = false
+
+# Show current git branch
+[git_branch]
+disabled = false
+
