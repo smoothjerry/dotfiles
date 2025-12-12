@@ -1,7 +1,7 @@
 # Git Configuration - Shared aliases and settings
 # Include this in your ~/.gitconfig with:
 # [include]
-#     path = ~/projects/dotfiles/.gitconfig
+#     path = ~/projects/dotfiles/git/.gitconfig
 
 [alias]
     # Add changes

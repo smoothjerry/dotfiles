@@ -1,2 +1,2 @@
+brew "stow"
 brew "starship"
-brew "aerospace"
