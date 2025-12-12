@@ -1,5 +1,12 @@
 {
-    "window.commandCenter": true,
+    "window.commandCenter": 1,
     "files.autoSave": "afterDelay",
-    "files.autoSaveDelay": 1000
+    "go.toolsManagement.autoUpdate": true,
+    "protoc": {
+        
+    },
+    "workbench.preferredDarkColorTheme": "Default Dark Modern",
+    "workbench.preferredHighContrastColorTheme": "Default Dark Modern",
+    "workbench.colorTheme": "Default Dark Modern",
+    "makefile.configureOnOpen": true
 }
