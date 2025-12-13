@@ -1,1 +1,13 @@
+# Theme
 
+theme = Deep
+# theme = Grape
+# theme = Monokai Vivid
+# theme = Ultra Violent
+# theme = Vercel
+
+# Cursor
+shell-integration-features = no-cursor
+cursor-color = 0000ff
+cursor-click-to-move = true
+cursor-style = block
