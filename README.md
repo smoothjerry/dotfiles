@@ -1,11 +1,13 @@
 # dotfiles
 Configurations for macOS development
 
-## Supported configurations
-* starship
-* ghostty
-* cursor
-* git
+## Supported tools
+* **starship** - cli prompt
+* **ghostty** - terminal emulator
+* **cursor** - ai-based ide
+* **git** - version control
+* **betterdisplay** - fine-grain display control
+* **scroll-reverser** - control mouse/trackpad scrolling
 
 ## Setup
 
@@ -18,12 +20,7 @@ This repository uses [GNU Stow](https://www.gnu.org/software/stow/) to manage sy
    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
    ```
 
-2. Install stow:
-   ```bash
-   brew install stow
-   ```
-
-3. Install packages from Brewfile:
+2. Install packages from Brewfile:
    ```bash
    brew bundle
    ```
@@ -51,6 +48,10 @@ This repository uses [GNU Stow](https://www.gnu.org/software/stow/) to manage sy
    ```bash
    stow --target="$HOME" cursor starship ghostty
    ```
+
+   **Note for scroll-reverser and betterdisplay:**
+
+   These apps don't support straightforward config files, so it's best just to play around with their GUIs after install to fix them to your liking.
 
 3. Set up Git configuration:
    
