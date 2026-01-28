@@ -4,6 +4,7 @@ Configurations for macOS development
 ## Supported tools
 * **starship** - cli prompt
 * **ghostty** - terminal emulator
+* **raycast** - extensible "spotlight" tool
 * **cursor** - ai-based ide
 * **git** - version control
 * **betterdisplay** - fine-grain display control
