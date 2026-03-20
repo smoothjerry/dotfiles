@@ -5,7 +5,7 @@ Configurations for macOS development
 * **starship** - cli prompt
 * **ghostty** - terminal emulator
 * **raycast** - extensible "spotlight" tool
-* **cursor** - ai-based ide
+* **claude** - ai coding assistant (Claude Code)
 * **git** - version control
 * **betterdisplay** - fine-grain display control
 * **scroll-reverser** - control mouse/trackpad scrolling
@@ -35,20 +35,22 @@ This repository uses [GNU Stow](https://www.gnu.org/software/stow/) to manage sy
 
 2. Use stow to create symlinks for each configuration:
    ```bash
-   # Cursor settings
-   stow --target="$HOME" cursor
-   
    # Starship prompt
    stow --target="$HOME" starship
    
    # Ghostty terminal
    stow --target="$HOME" ghostty
+
+   # Claude Code
+   stow --target="$HOME" claude
    ```
 
    Or stow all packages at once:
    ```bash
-   stow --target="$HOME" cursor starship ghostty
+   stow --target="$HOME" starship ghostty claude
    ```
+
+   **Note for claude:** If `~/.claude/settings.json` already exists, use `stow --adopt --target="$HOME" claude` to adopt the existing file into the repo, then review changes with `git diff`.
 
    **Note for scroll-reverser and betterdisplay:**
 
