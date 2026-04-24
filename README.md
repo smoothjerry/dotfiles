@@ -4,6 +4,7 @@ Configurations for macOS development
 ## Supported tools
 * **starship** - cli prompt
 * **ghostty** - terminal emulator
+* **cmux** - terminal multiplexer for AI coding agents
 * **raycast** - extensible "spotlight" tool
 * **claude** - ai coding assistant (Claude Code)
 * **git** - version control

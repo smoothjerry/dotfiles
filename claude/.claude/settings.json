@@ -1,4 +1,8 @@
 {
+  "enabledPlugins": {
+    "gopls-lsp@claude-plugins-official": true,
+    "ralph-loop@claude-plugins-official": true
+  },
   "extraKnownMarketplaces": {
     "claude-plugins-official": {
       "source": {
@@ -6,5 +10,8 @@
         "repo": "anthropics/claude-plugins-official"
       }
     }
-  }
+  },
+  "effortLevel": "high",
+  "tui": "fullscreen",
+  "skipAutoPermissionPrompt": true
 }

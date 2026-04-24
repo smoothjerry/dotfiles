@@ -1,6 +1,7 @@
 # casks for GUI-heavy applications
 cask "betterdisplay"
 cask "claude"
+cask "cmux"
 cask "ghostty"
 cask "raycast"
 
