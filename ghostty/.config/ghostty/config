@@ -1,6 +1,8 @@
 # Theme
 
-theme = Gruvbox Material
+theme = Gruvbox Dark Hard
+# theme = Gruvbox Dark
+# theme = Gruvbox Material
 # theme = Gruvbox Material Dark
 # theme = Gruvbox Material Light
 # theme = Deep
