@@ -1,6 +1,9 @@
 # Theme
 
-theme = Deep
+theme = Gruvbox Material
+# theme = Gruvbox Material Dark
+# theme = Gruvbox Material Light
+# theme = Deep
 # theme = Grape
 # theme = Monokai Vivid
 # theme = Ultra Violent
