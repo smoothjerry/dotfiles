@@ -7,6 +7,7 @@ Configurations for macOS development
 * **cmux** - terminal multiplexer for AI coding agents
 * **raycast** - extensible "spotlight" tool
 * **claude** - ai coding assistant (Claude Code)
+* **zed** - code editor
 * **git** - version control
 * **betterdisplay** - fine-grain display control
 * **scroll-reverser** - control mouse/trackpad scrolling
@@ -44,11 +45,14 @@ This repository uses [GNU Stow](https://www.gnu.org/software/stow/) to manage sy
 
    # Claude Code
    stow --target="$HOME" claude
+
+   # Zed editor
+   stow --target="$HOME" zed
    ```
 
    Or stow all packages at once:
    ```bash
-   stow --target="$HOME" starship ghostty claude
+   stow --target="$HOME" starship ghostty claude zed
    ```
 
    **Note for claude:** If `~/.claude/settings.json` already exists, use `stow --adopt --target="$HOME" claude` to adopt the existing file into the repo, then review changes with `git diff`.
