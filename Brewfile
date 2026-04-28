@@ -4,6 +4,7 @@ cask "claude"
 cask "cmux"
 cask "ghostty"
 cask "raycast"
+cask "zed"
 
 # fonts
 cask "font-jetbrains-mono-nerd-font"
