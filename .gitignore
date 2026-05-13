@@ -33,3 +33,6 @@ go.work.sum
 
 # Claude Code
 .claude/worktrees/
+
+# Zed
+zed/.config/zed/prompts/
