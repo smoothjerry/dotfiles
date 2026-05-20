@@ -36,3 +36,6 @@ go.work.sum
 
 # Zed
 zed/.config/zed/prompts/
+
+# Zsh — work-specific config, never commit
+zsh/.config/zsh/work.zsh
