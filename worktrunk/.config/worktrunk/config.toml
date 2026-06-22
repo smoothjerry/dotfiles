@@ -1,0 +1,20 @@
+# Worktrees land inside the repo, out of the way
+worktree-path = "{{ repo_path }}/.worktrees/{{ branch | sanitize }}"
+
+[commit]
+# Stage all changes before generating a commit message
+stage = "all"
+
+[commit.generation]
+# Use Claude (haiku for speed) to generate commit messages from the diff
+command = "MAX_THINKING_TOKENS=0 claude -p --no-session-persistence --model=haiku --tools='' --disable-slash-commands --setting-sources='' --system-prompt=''"
+template-append = """
+- Use conventional commit format: type(scope): subject
+- Reference a ticket ID in the body if the branch name contains one (e.g. ENG-1234)
+- Imperative mood: "Add feature" not "Added feature"
+"""
+
+[merge]
+squash = true
+commit = true
+remove = true
