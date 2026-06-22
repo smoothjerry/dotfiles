@@ -4,10 +4,8 @@ Configurations for macOS development
 ## Supported tools
 * **starship** - cli prompt
 * **ghostty** - terminal emulator
-* **cmux** - terminal multiplexer for AI coding agents
 * **raycast** - extensible "spotlight" tool
 * **claude** - ai coding assistant (Claude Code)
-* **zed** - code editor
 * **git** - version control
 * **zoxide** - smarter `cd` with frecency-based directory jumping (`z`)
 * **worktrunk** - git worktree manager (`wt`)
@@ -48,9 +46,6 @@ This repository uses [GNU Stow](https://www.gnu.org/software/stow/) to manage sy
    # Claude Code
    stow --target="$HOME" claude
 
-   # Zed editor
-   stow --target="$HOME" zed
-
    # Zsh (includes zoxide and worktrunk shell init)
    stow --target="$HOME" zsh
 
@@ -60,7 +55,7 @@ This repository uses [GNU Stow](https://www.gnu.org/software/stow/) to manage sy
 
    Or stow all packages at once:
    ```bash
-   stow --target="$HOME" starship ghostty claude zed zsh worktrunk
+   stow --target="$HOME" starship ghostty claude zsh worktrunk
    ```
 
    **Note for claude:** If `~/.claude/settings.json` already exists, use `stow --adopt --target="$HOME" claude` to adopt the existing file into the repo, then review changes with `git diff`.
