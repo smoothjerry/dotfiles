@@ -18,3 +18,12 @@ template-append = """
 squash = true
 commit = true
 remove = true
+
+[post-start]
+# Share gitignored files (e.g. .claude/settings.local.json) into new worktrees
+copy-ignored = "wt step copy-ignored"
+
+[projects."github.com/Hinge-Select/hinge-select"]
+# Bazel keeps per-worktree caches alive after removal, causing memory growth
+# (see #hingeselect-eng thread). Expunge before the worktree is deleted.
+pre-remove = "bazel clean --expunge_async"
