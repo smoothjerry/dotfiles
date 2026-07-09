@@ -16,5 +16,8 @@ source ~/.config/zsh/tools/direnv.zsh
 source ~/.config/zsh/tools/worktrunk.zsh
 
 [[ -f ~/.config/zsh/work.zsh ]] && source ~/.config/zsh/work.zsh
+export PATH="$HOME/.local/bin:$PATH"
 export AWS_CA_BUNDLE="/private/etc/netskope/netskope-cert-bundle.pem"
+export REQUESTS_CA_BUNDLE="/private/etc/netskope/netskope-cert-bundle.pem"
+export PIP_CERT="/private/etc/netskope/netskope-cert-bundle.pem"
 export NODE_EXTRA_CA_CERTS="/private/etc/netskope/netskope-cert-bundle.pem"
