@@ -1,0 +1,26 @@
+# Direnv - https://direnv.net/
+# Helpers available to every .envrc on this machine.
+
+# use venv [dir]
+#
+# Activate an existing project-local virtualenv on entry, deactivate on exit.
+# Defaults to .venv, which is what editors, ruff, and pyright probe for.
+# Never creates anything — if the venv is absent, this is a no-op.
+#
+# Preferred over direnv's built-in `layout python`, which would build an env
+# under .direnv/python-$version rather than using the .venv already there.
+use_venv() {
+  local venv
+  venv="$(expand_path "${1:-.venv}")"
+
+  if [[ ! -x $venv/bin/python ]]; then
+    log_status "no virtualenv at ${venv#"$PWD"/} — skipping"
+    return 0
+  fi
+
+  export VIRTUAL_ENV="$venv"
+  # The venv's own activate script prepends "(name)" to PS1; starship renders
+  # the segment itself from $VIRTUAL_ENV, so suppress the duplicate.
+  export VIRTUAL_ENV_DISABLE_PROMPT=1
+  PATH_add "$venv/bin"
+}

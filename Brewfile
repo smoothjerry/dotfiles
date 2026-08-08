@@ -8,6 +8,7 @@ cask "raycast"
 cask "font-jetbrains-mono-nerd-font"
 
 # brew packages for CLI tools
+brew "direnv"
 brew "gh"
 brew "stow"
 brew "starship"

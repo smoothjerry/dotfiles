@@ -8,6 +8,7 @@ Configurations for macOS development
 * **claude** - ai coding assistant (Claude Code)
 * **git** - version control
 * **zoxide** - smarter `cd` with frecency-based directory jumping (`z`)
+* **direnv** - per-directory environments, incl. auto-activated Python venvs
 * **worktrunk** - git worktree manager (`wt`)
 * **betterdisplay** - fine-grain display control
 * **scroll-reverser** - control mouse/trackpad scrolling
@@ -51,11 +52,14 @@ This repository uses [GNU Stow](https://www.gnu.org/software/stow/) to manage sy
 
    # Worktrunk global config
    stow --target="$HOME" worktrunk
+
+   # Direnv shared helpers
+   stow --target="$HOME" direnv
    ```
 
    Or stow all packages at once:
    ```bash
-   stow --target="$HOME" starship ghostty claude zsh worktrunk
+   stow --target="$HOME" starship ghostty claude zsh worktrunk direnv
    ```
 
    **Note for claude:** If `~/.claude/settings.json` already exists, use `stow --adopt --target="$HOME" claude` to adopt the existing file into the repo, then review changes with `git diff`.
@@ -73,6 +77,24 @@ This repository uses [GNU Stow](https://www.gnu.org/software/stow/) to manage sy
    ```
    
    You can also add machine-specific settings (like `user.name`, `user.email`, `commit.gpgsign`) in your `~/.gitconfig` above the include line.
+
+4. Per-project Python environments (optional):
+
+   The `direnv` package provides a `use venv` helper. In a project that already
+   has a `.venv`:
+   ```bash
+   echo 'use venv' > .envrc
+   direnv allow
+   ```
+   Entering the directory activates the venv, leaving deactivates it — no more
+   stale `(project)` in the prompt after you `cd` away. The helper never creates
+   a venv; if there isn't one it quietly does nothing.
+
+   Create the venv yourself with `uv venv` (not `python3 -m venv`). `uv` writes
+   a `prompt` key into `pyvenv.cfg`, which is what starship displays; without it
+   the prompt segment just reads `.venv`.
+
+   Add `.envrc` and `.venv/` to that project's `.gitignore`.
 
 ### Managing dotfiles
 
