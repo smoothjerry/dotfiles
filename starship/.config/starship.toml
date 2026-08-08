@@ -5,10 +5,10 @@ $directory\
 $git_branch\
 $git_state\
 $git_status\
+$python\
 $aws\
 $cmd_duration\
 $line_break\
-$python\
 $character"""
 
 [directory]
@@ -47,5 +47,5 @@ format = "[$duration]($style) "
 style = "yellow"
 
 [python]
-format = "[$virtualenv]($style) "
-style = "bright-black"
+format = '([\($virtualenv\)]($style) )'
+style = "green"
