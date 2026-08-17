@@ -1,6 +1,23 @@
 # Worktrees land inside the repo, out of the way
 worktree-path = "{{ repo_path }}/.worktrees/{{ branch | sanitize }}"
 
+[aliases]
+# Supacode locks the worktrees it manages, so `wt remove` refuses to delete
+# them (even with --force). This unlocks first, then removes, in one step.
+# All wt remove flags pass through, e.g. `wt rmu -D` or `wt rmu mybranch -D`.
+rmu = """
+target=""
+for a in {{ args }}; do
+  case "$a" in
+    -*) : ;;
+    *) target="$a" ;;
+  esac
+done
+path=$(git worktree list --porcelain | awk -v want="${target:-$(git branch --show-current)}" '/^worktree /{p=$2} $0=="branch refs/heads/"want{print p}')
+[ -n "$path" ] && git worktree unlock "$path" 2>/dev/null
+wt remove {{ args }}
+"""
+
 [commit]
 # Stage all changes before generating a commit message
 stage = "all"
